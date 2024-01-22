@@ -203,6 +203,7 @@ em {
 	-webkit-transition: background-position 300ms ease-in;
 	-o-transition: background-position 300ms ease-in;
 	transition: background-position 300ms ease-in;
+	background: -o-linear-gradient(left, #0f77ea 5.39%, #00d9d0, #0f77ea);
 	background: -webkit-gradient(
 		linear,
 		left top,
@@ -211,7 +212,6 @@ em {
 		color-stop(#00d9d0),
 		to(#0f77ea)
 	);
-	background: -o-linear-gradient(left, #0f77ea 5.39%, #00d9d0, #0f77ea);
 	background: linear-gradient(90deg, #0f77ea 5.39%, #00d9d0, #0f77ea);
 	background-size: 200%;
 	background-position: left;
@@ -225,6 +225,7 @@ em {
 .divider {
 	width: 100%;
 	height: 3px;
+	background: -o-linear-gradient(right, #021327 30%, #00d9d0 50%, #021327 70%);
 	background: -webkit-gradient(
 		linear,
 		right top,
@@ -233,7 +234,6 @@ em {
 		color-stop(50%, #00d9d0),
 		color-stop(70%, #021327)
 	);
-	background: -o-linear-gradient(right, #021327 30%, #00d9d0 50%, #021327 70%);
 	background: linear-gradient(270deg, #021327 30%, #00d9d0 50%, #021327 70%);
 	margin-inline: auto;
 }
@@ -294,6 +294,7 @@ em {
 
 .nav-links.mobile-collapsed {
 	visibility: collapse;
+	pointer-events: none;
 }
 
 .nav-links.show {
@@ -371,6 +372,8 @@ em {
 
 .site-header {
 	min-height: 100svh;
+	background-image: -o-linear-gradient(#020e1dd9, #020e1dd9),
+		url("../assets/images/mobile/header_bg_min.webp");
 	background-image: -webkit-gradient(
 			linear,
 			left top,
@@ -378,8 +381,6 @@ em {
 			from(#020e1dd9),
 			to(#020e1dd9)
 		),
-		url("../assets/images/mobile/header_bg_min.webp");
-	background-image: -o-linear-gradient(#020e1dd9, #020e1dd9),
 		url("../assets/images/mobile/header_bg_min.webp");
 	background-image: linear-gradient(#020e1dd9, #020e1dd9),
 		url("../assets/images/mobile/header_bg_min.webp");
@@ -490,6 +491,8 @@ em {
 	border: double 2px transparent;
 	border-radius: 10px;
 	background-color: var(--neutral-200);
+	background-image: -o-linear-gradient(var(--neutral-200), var(--neutral-200)),
+		-o-radial-gradient(top center, circle, #00d9d0 50%, #0081ff);
 	background-image: -webkit-gradient(
 			linear,
 			left top,
@@ -498,8 +501,6 @@ em {
 			to(var(--neutral-200))
 		),
 		radial-gradient(circle at top center, #00d9d0 50%, #0081ff);
-	background-image: -o-linear-gradient(var(--neutral-200), var(--neutral-200)),
-		-o-radial-gradient(top center, circle, #00d9d0 50%, #0081ff);
 	background-image: linear-gradient(var(--neutral-200), var(--neutral-200)),
 		radial-gradient(circle at top center, #00d9d0 50%, #0081ff);
 	background-origin: border-box;
@@ -743,6 +744,7 @@ em {
 
 	.nav-links.mobile-collapsed {
 		visibility: visible;
+		pointer-events: all;
 	}
 
 	.burger {
@@ -758,6 +760,8 @@ em {
 	/****************************/
 
 	.site-header {
+		background-image: -o-linear-gradient(#020e1dd9, #020e1dd9),
+			url("../assets/images/header_bg.webp");
 		background-image: -webkit-gradient(
 				linear,
 				left top,
@@ -765,8 +769,6 @@ em {
 				from(#020e1dd9),
 				to(#020e1dd9)
 			),
-			url("../assets/images/header_bg.webp");
-		background-image: -o-linear-gradient(#020e1dd9, #020e1dd9),
 			url("../assets/images/header_bg.webp");
 		background-image: linear-gradient(#020e1dd9, #020e1dd9),
 			url("../assets/images/header_bg.webp");

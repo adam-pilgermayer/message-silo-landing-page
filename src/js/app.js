@@ -26,6 +26,15 @@ function toggleMenu() {
 	burgerBtn.classList.toggle("open");
 }
 
+function hideMenuOnAction(e) {
+	if (window.innerWidth >= 768) return;
+	if (!e.target.classList.contains("nav-link")) return;
+	if (!e.currentTarget.classList.contains("show")) return;
+
+	toggleMenu();
+}
+
 burgerBtn.addEventListener("click", toggleMenu);
+navList.addEventListener("click", hideMenuOnAction);
 
 initializeNavbar();
