@@ -14,9 +14,6 @@
 	--primary-200-tp: #0081ff1c;
 	--primary-300: #0f77ea;
 
-	/* Gradient Colors */
-	--gradient-100: linear-gradient(90deg, #0f77ea 0, #00d9d0 50%);
-
 	/* Font Sizes */
 	--fs-100: clamp(0.625rem, 0.7347rem + -0.1416vw, 0.7038rem);
 	--fs-200: clamp(0.8838rem, 0.9586rem + -0.0966vw, 0.9375rem);
@@ -81,7 +78,15 @@ em {
 
 /* Colors */
 .gradient-text {
-	background: var(--gradient-100);
+	background: -webkit-gradient(
+		linear,
+		left top,
+		right top,
+		color-stop(10.33%, #0f77ea),
+		color-stop(97.65%, #00d9d0)
+	);
+	background: -o-linear-gradient(left, #0f77ea 10.33%, #00d9d0 97.65%);
+	background: linear-gradient(90deg, #0f77ea 10.33%, #00d9d0 97.65%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
@@ -143,6 +148,7 @@ em {
 	-ms-flex-align: baseline;
 	align-items: baseline;
 	max-width: 65ch;
+	padding-bottom: 2rem;
 }
 
 /* Typography*/
