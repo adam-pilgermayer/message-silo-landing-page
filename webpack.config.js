@@ -29,21 +29,7 @@ module.exports = {
 	},
 	optimization: {
 		minimize: true,
-		minimizer: [
-			"...",
-			new CssMinimizerPlugin(),
-			new TerserPlugin({
-				cache: true,
-				parallel: true,
-				sourceMap: true,
-				terserOptions: {
-					compress: {
-						drop_console: true,
-					},
-					mangle: true,
-				},
-			}),
-		],
+		minimizer: ["...", new CssMinimizerPlugin(), new TerserPlugin()],
 		splitChunks: {
 			chunks: "all",
 		},
@@ -53,13 +39,12 @@ module.exports = {
 			filename: "index.html",
 			template: "./src/template.html",
 			title: "Message Silo",
-			inject: "body",
 		}),
 		new MiniCssExtractPlugin(),
 		new CrittersWebpackPlugin({
-			preload: "media",
+			preload: "swap",
 			mergeStylesheets: false,
-			pruneSource: false,
+			includeSelectors: "header",
 		}),
 	],
 	module: {

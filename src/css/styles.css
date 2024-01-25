@@ -1,7 +1,7 @@
 /*********************/
 /***** Variables *****/
 /*********************/
-
+/* critters:include start */
 :root {
 	/* Neutral Colors*/
 	--neutral-100: #ffffff;
@@ -98,6 +98,7 @@ em {
 	max-width: 568px;
 	height: 100%;
 }
+/* critters:include end */
 
 .img-small-wrapper {
 	height: 90px;
@@ -109,6 +110,7 @@ em {
 	height: 100%;
 }
 
+/* critters:include start */
 /* Layout */
 .wrapper {
 	max-width: 1920px;
@@ -226,6 +228,7 @@ em {
 .btn-primary:where(:hover, :focus-visible) {
 	background-position: right;
 }
+/* critters:include end */
 
 /* Design elements */
 .divider {
@@ -251,7 +254,7 @@ em {
 /****************************/
 /****** Navbar Styles *******/
 /****************************/
-
+/* critters:include start */
 .navbar {
 	position: relative;
 	inset: 0;
@@ -413,7 +416,7 @@ em {
 	font-size: var(--fs-600);
 	margin-bottom: 2rem;
 }
-
+/* critters:include end */
 /**************************/
 /****** Main Styles *******/
 /**************************/
@@ -726,7 +729,7 @@ em {
 	/****************************/
 	/****** Navbar Styles *******/
 	/****************************/
-
+	/* critters:include start */
 	.wrapper {
 		padding-inline: 6rem;
 		margin-inline: auto;
@@ -779,7 +782,7 @@ em {
 		background-image: linear-gradient(#020e1dd9, #020e1dd9),
 			url("../assets/images/header_bg.webp");
 	}
-
+	/* critters:include end */
 	/**************************/
 	/****** Main Styles *******/
 	/**************************/
@@ -815,7 +818,7 @@ em {
 	/**************************/
 	/****** Base Styles *******/
 	/**************************/
-
+	/* critters:include start */
 	/* Layout */
 	.row {
 		-ms-grid-columns: 50% 50%;
@@ -840,7 +843,7 @@ em {
 		-ms-grid-column-align: center;
 		justify-self: center;
 	}
-
+	/* critters:include end */
 	/**************************/
 	/****** Main Styles *******/
 	/**************************/
@@ -875,7 +878,7 @@ em {
 	/**************************/
 	/****** Base Styles *******/
 	/**************************/
-
+	/* critters:include start */
 	/* Layout */
 	.swap > .col:nth-child(odd) {
 		-webkit-box-ordinal-group: 3;
@@ -889,7 +892,7 @@ em {
 		order: 1;
 		justify-self: flex-start;
 	}
-
+	/* critters:include end */
 	/**************************/
 	/****** Main Styles *******/
 	/**************************/
