@@ -9,18 +9,16 @@
 			content="A platform to auto-correct your dead-lettered messages and make integration simpler for event-driven systems. Azure Service Bus, AWS SQS, RabbitMQ, ..." />
 		<link
 			rel="shortcut icon"
-			href="./src/assets/images/favicon.png"
+			href="<%= require('./assets/images/favicon.png')%>"
 			type="image/x-icon" />
-		<link rel="stylesheet" href="./src/css/reset.css" />
-		<link rel="stylesheet" href="./src/css/styles.css" />
 		<script async defer src="https://buttons.github.io/buttons.js"></script>
 	</head>
 	<body>
-		<header class="site-header">
+		<header data-critters-container class="site-header">
 			<nav class="navbar wrapper">
 				<a class="site-logo-box" href="index.html">
 					<img
-						src="./src/assets/images/logo.svg"
+						src="<%= require('./assets/images/logo.svg')%>"
 						alt="Message Silo logo"
 						class="site-logo" />
 				</a>
@@ -64,7 +62,7 @@
 				</div>
 				<div class="col">
 					<img
-						src="./src/assets/images/cubes.svg"
+						src="<%= require('./assets/images/cubes.svg') %>"
 						alt="Illustration - cubes"
 						loading="lazy"
 						class="img-large" />
@@ -80,7 +78,7 @@
 							<img
 								class="img-small"
 								loading="lazy"
-								src="./src/assets/images/service-bus.svg"
+								src="<%= require('./assets/images/service-bus.svg') %>"
 								alt="Service bus logo" />
 						</div>
 						<figcaption class="service-name">Azure Service Bus</figcaption>
@@ -90,10 +88,9 @@
 							<img
 								class="img-small"
 								loading="lazy"
-								src="./src/assets/images/rabbitmq.svg"
+								src="<%= require('./assets/images/rabbitmq.svg') %>"
 								alt="RabbitMQ logo" />
 						</div>
-
 						<figcaption class="service-name">RabbitMQ</figcaption>
 					</figure>
 					<figure class="service">
@@ -101,7 +98,7 @@
 							<img
 								class="img-small"
 								loading="lazy"
-								src="./src/assets/images/aws-sqs.svg"
+								src="<%= require('./assets/images/aws-sqs.svg') %>"
 								alt="AWS SQS Logo" />
 						</div>
 						<figcaption class="service-name">AWS SQS</figcaption>
@@ -119,7 +116,7 @@
 							<div class="simple card-image-box">
 								<img
 									loading="lazy"
-									src="./src/assets/images/simple.svg"
+									src="<%= require('./assets/images/simple.svg') %>"
 									alt="Illustration - Simple icon"
 									class="card-image" />
 							</div>
@@ -135,7 +132,7 @@
 							<div class="dev-friendly card-image-box">
 								<img
 									loading="lazy"
-									src="./src/assets/images/dev_friendly.svg"
+									src="<%= require('./assets/images/dev_friendly.svg') %>"
 									alt="Illustration - Developer Friendly icon"
 									class="card-image" />
 							</div>
@@ -151,7 +148,7 @@
 							<div class="free card-image-box">
 								<img
 									loading="lazy"
-									src="./src/assets/images/free.svg"
+									src="<%= require('./assets/images/free.svg') %>"
 									alt="Illustration - Free icon"
 									class="card-image" />
 							</div>
@@ -190,11 +187,11 @@
 						<img
 							loading="lazy"
 							srcset="
-								./src/assets/images/mobile/messages_min.webp  400w,
-								./src/assets/images/messages.webp            1045w
+							<%= require('./assets/images/mobile/messages_min.webp') %>  400w,
+							<%= require('./assets/images/messages.webp') %>            1045w
 							"
 							sizes="(max-width: 1000px) 400px, 1045px"
-							src="./src/assets/images/messages.webp"
+							src="<%= require('./assets/images/messages.webp') %>"
 							alt="Illustration - messages"
 							class="img-large" />
 					</div>
@@ -223,17 +220,16 @@
 							<img
 								loading="lazy"
 								srcset="
-									./src/assets/images/mobile/systems_min.webp 400w,
-									./src/assets/images/systems.webp            606w
+								<%= require('./assets/images/mobile/systems_min.webp') %> 400w,
+								<%= require('./assets/images/systems.webp') %>            606w
 								"
 								sizes="(max-width: 1000px) 400px, 606px"
-								src="./src/assets/images/systems.webp"
+								src="<%= require('./assets/images/systems.webp') %>"
 								alt="Illustration - systems"
 								class="img-large" />
 						</div>
 					</section>
 				</div>
-
 				<section class="row wrapper swap">
 					<div class="col">
 						<div class="row-info">
@@ -253,11 +249,11 @@
 						<img
 							loading="lazy"
 							srcset="
-								./src/assets/images/mobile/coding_min.webp 400w,
-								./src/assets/images/coding.webp            686w
+							<%= require('./assets/images/mobile/coding_min.webp') %> 400w,
+							<%= require('./assets/images/coding.webp') %>            686w
 							"
 							sizes="(max-width: 1000px) 400px, 686px"
-							src="./src/assets/images/coding.webp"
+							src="<%= require('./assets/images/coding.webp') %>"
 							alt="Illustration - coding"
 							class="systems-img img-large" />
 					</div>
@@ -287,7 +283,7 @@
 				<div class="footer-logo">
 					<img
 						loading="lazy"
-						src="./src/assets/images/logo.svg"
+						src="<%= require('./assets/images/logo.svg') %>"
 						alt="Message Silo logo" />
 					<h3>Message Silo</h3>
 				</div>
@@ -327,6 +323,5 @@
 				</ul>
 			</div>
 		</footer>
-		<script src="./src/js/app.js"></script>
 	</body>
 </html>
