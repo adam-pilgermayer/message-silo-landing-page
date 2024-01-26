@@ -3,15 +3,10 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CrittersWebpackPlugin = require("critters-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
 	entry: {
 		index: "./src/js/index.js",
-	},
-	devtool: "inline-source-map",
-	devServer: {
-		static: "./dist",
 	},
 	output: {
 		filename: "[name].bundle.js",
@@ -29,7 +24,7 @@ module.exports = {
 	},
 	optimization: {
 		minimize: true,
-		minimizer: ["...", new CssMinimizerPlugin(), new TerserPlugin()],
+		minimizer: ["...", new CssMinimizerPlugin()],
 		splitChunks: {
 			chunks: "all",
 		},
@@ -38,13 +33,11 @@ module.exports = {
 		new htmlWebpackPlugin({
 			filename: "index.html",
 			template: "./src/template.html",
-			title: "Message Silo",
 		}),
 		new MiniCssExtractPlugin(),
 		new CrittersWebpackPlugin({
 			preload: "swap",
 			mergeStylesheets: false,
-			includeSelectors: "header",
 		}),
 	],
 	module: {
@@ -54,8 +47,12 @@ module.exports = {
 				use: [MiniCssExtractPlugin.loader, "css-loader"],
 			},
 			{
-				test: /\.(png|svg|jpe?g|gif|webp|ico)$/i,
+				test: /\.(png|jpe?g|gif|webp|ico)$/i,
 				type: "asset/resource",
+			},
+			{
+				test: /\.svg/i,
+				type: "asset/inline",
 			},
 		],
 	},
