@@ -3,13 +3,15 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CrittersWebpackPlugin = require("critters-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
 	entry: {
 		index: "./src/js/index.js",
 	},
 	output: {
-		filename: "[name].bundle.js",
+		filename: "[name].[contenthash].min.js",
 		path: path.resolve(__dirname, "dist"),
 		publicPath: "",
 		assetModuleFilename: (pathData) => {
@@ -24,7 +26,20 @@ module.exports = {
 	},
 	optimization: {
 		minimize: true,
-		minimizer: ["...", new CssMinimizerPlugin()],
+		minimizer: [
+			"...",
+			new CssMinimizerPlugin(),
+			new TerserPlugin({
+				exclude: /node-modules/,
+				minify: TerserPlugin.swcMinify,
+				terserOptions: {
+					compress: {
+						drop_console: true,
+					},
+					mangle: true,
+				},
+			}),
+		],
 		splitChunks: {
 			chunks: "all",
 		},
@@ -34,25 +49,29 @@ module.exports = {
 			filename: "index.html",
 			template: "./src/template.html",
 		}),
-		new MiniCssExtractPlugin(),
+		new MiniCssExtractPlugin({
+			filename: "[name].css",
+			chunkFilename: "[id].css",
+		}),
 		new CrittersWebpackPlugin({
 			preload: "swap",
 			mergeStylesheets: false,
+		}),
+		new CompressionPlugin({
+			exclude: /.map$/,
+			deleteOriginalAssets: "keep-source-map",
 		}),
 	],
 	module: {
 		rules: [
 			{
 				test: /.s?css$/,
+				exclude: /node-modules/,
 				use: [MiniCssExtractPlugin.loader, "css-loader"],
 			},
 			{
-				test: /\.(png|jpe?g|gif|webp|ico)$/i,
+				test: /\.(png|svg|jpe?g|gif|webp|ico)$/i,
 				type: "asset/resource",
-			},
-			{
-				test: /\.svg/i,
-				type: "asset/inline",
 			},
 		],
 	},
