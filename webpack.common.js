@@ -1,4 +1,5 @@
 const path = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
@@ -22,7 +23,6 @@ module.exports = {
 				.join("/");
 			return `${filepath}/[name].[hash][ext][query]`;
 		},
-		clean: true,
 	},
 	optimization: {
 		minimize: true,
@@ -45,6 +45,7 @@ module.exports = {
 		},
 	},
 	plugins: [
+		new CleanWebpackPlugin(),
 		new htmlWebpackPlugin({
 			filename: "index.html",
 			template: "./src/template.html",
