@@ -5,7 +5,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CrittersWebpackPlugin = require("critters-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
-const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
 	entry: {
@@ -57,10 +56,6 @@ module.exports = {
 		new CrittersWebpackPlugin({
 			preload: "swap",
 			mergeStylesheets: false,
-		}),
-		new CompressionPlugin({
-			exclude: /.map$/,
-			deleteOriginalAssets: "keep-source-map",
 		}),
 	],
 	module: {
