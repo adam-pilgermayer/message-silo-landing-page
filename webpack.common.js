@@ -63,7 +63,18 @@ module.exports = {
 			{
 				test: /.s?css$/,
 				exclude: /node-modules/,
-				use: [MiniCssExtractPlugin.loader, "css-loader"],
+				use: [
+					MiniCssExtractPlugin.loader,
+					"css-loader",
+					{
+						loader: "postcss-loader",
+						options: {
+							postcssOptions: {
+								plugins: ["postcss-preset-env"],
+							},
+						},
+					},
+				],
 			},
 			{
 				test: /\.(png|svg|jpe?g|gif|webp|ico)$/i,
