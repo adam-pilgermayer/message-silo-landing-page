@@ -253,8 +253,9 @@ em {
 /****************************/
 
 .navbar {
-	position: relative;
-	inset: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -264,8 +265,9 @@ em {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	padding-block: 2rem;
+	padding-block: 1rem;
 	z-index: 1000;
+	transition: background-color 300ms;
 }
 
 .site-logo-box {
@@ -275,11 +277,12 @@ em {
 
 .nav-links {
 	position: absolute;
-	top: -400px;
+	top: -70px;
 	left: 0;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
+	justify-content: center;
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
 	-ms-flex-direction: column;
@@ -287,26 +290,56 @@ em {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	gap: 1rem;
+	gap: 3rem;
 	width: 100%;
-	padding: 2rem;
+	height: 0;
+	font-size: var(--fs-500);
 	background-color: var(--neutral-200);
 	opacity: 0;
-	-webkit-transition: all 300ms ease-in-out;
-	-o-transition: all 300ms ease-in-out;
-	transition: all 300ms ease-in-out;
-	z-index: -1;
-}
-
-.nav-links.mobile-collapsed {
 	visibility: collapse;
 	pointer-events: none;
+	overflow: hidden;
+	-webkit-transition: visibility 400ms, opacity 400ms, height 400ms;
+	-o-transition: visibility 400ms, opacity 400ms, height 400ms;
+	transition: top 300ms, visibility 300ms, opacity 300ms, height 300ms;
 }
 
 .nav-links.show {
+	top: 0;
 	visibility: visible;
-	top: 80px;
+	pointer-events: all;
+	overflow: visible;
+	height: 100svh;
 	opacity: 1;
+	z-index: -1;
+}
+
+.nav-links.show .nav-item {
+	position: relative;
+	opacity: 0;
+	animation: fadeInRight 0.5s ease forwards;
+	animation-delay: 0.35s;
+}
+
+.nav-links.show .nav-item:nth-of-type(2) {
+	animation-delay: 0.4s;
+}
+.nav-links.show .nav-item:nth-of-type(3) {
+	animation-delay: 0.45s;
+}
+.nav-links.show .nav-item:nth-of-type(4) {
+	animation-delay: 0.5s;
+}
+
+@keyframes fadeInRight {
+	0% {
+		opacity: 0;
+		left: 20%;
+	}
+	100% {
+		opacity: 1;
+		left: 0;
+	}
 }
 
 .nav-link {
@@ -377,6 +410,7 @@ em {
 /****************************/
 
 .site-header {
+	padding-top: 6rem;
 	min-height: 100svh;
 	background-image: -o-linear-gradient(#020e1dd9, #020e1dd9),
 		url("../assets/images/mobile/header_bg_min.webp");
@@ -741,16 +775,23 @@ em {
 		-webkit-box-pack: start;
 		-ms-flex-pack: start;
 		justify-content: flex-start;
+		gap: 1rem;
 		width: auto;
+		height: auto;
 		padding: 0;
 		margin-inline: auto;
 		background-color: transparent;
 		opacity: 1;
-	}
-
-	.nav-links.mobile-collapsed {
 		visibility: visible;
 		pointer-events: all;
+		overflow: visible;
+		font-size: var(--fs-300);
+	}
+
+	.nav-links.show {
+		visibility: visible;
+		height: auto;
+		opacity: 1;
 	}
 
 	.burger {

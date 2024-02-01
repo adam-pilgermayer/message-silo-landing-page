@@ -8,5 +8,6 @@ module.exports = merge(common, {
 		static: "./dist",
 		hot: true,
 		compress: true,
+		liveReload: true,
 	},
 });

@@ -3,16 +3,21 @@
 import "../css/reset.css";
 import "../css/styles.css";
 
-const burgerBtn = document.querySelector(".js-burger");
-const navList = document.querySelector(".js-nav-links");
+const navbar = document.querySelector(".js-navbar");
+const burgerBtn = navbar.querySelector(".js-burger");
+const navList = navbar.querySelector(".js-nav-links");
 
 function initializeNavbar() {
 	if (!burgerBtn.getAttribute("aria-expanded")) {
 		burgerBtn.setAttribute("aria-expanded", false);
 	}
+}
 
-	if (!navList.classList.contains("mobile-collapsed")) {
-		navList.classList.add("mobile-collapsed");
+function toggleNavbarBg() {
+	if (window.scrollY > 0) {
+		navbar.classList.add("bg-200");
+	} else {
+		navbar.classList.remove("bg-200");
 	}
 }
 
@@ -27,7 +32,6 @@ function toggleMenu() {
 	const navListIsShown = navList.classList.toggle("show");
 
 	setAriaExpanded(burgerBtn);
-	navList.classList.toggle("mobile-collapsed", !navListIsShown);
 	burgerBtn.classList.toggle("open");
 }
 
@@ -39,6 +43,7 @@ function hideMenuOnAction(e) {
 	toggleMenu();
 }
 
+window.addEventListener("scroll", toggleNavbarBg);
 burgerBtn.addEventListener("click", toggleMenu);
 navList.addEventListener("click", hideMenuOnAction);
 

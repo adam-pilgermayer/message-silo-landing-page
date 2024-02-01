@@ -14,33 +14,33 @@
 		<script async defer src="https://buttons.github.io/buttons.js"></script>
 	</head>
 	<body>
+		<nav class="navbar js-navbar wrapper">
+			<a class="site-logo-box" href="index.html">
+				<img
+					src="<%= require('./assets/images/logo.svg')%>"
+					alt="Message Silo logo"
+					class="site-logo" />
+			</a>
+			<button
+				class="burger js-burger"
+				aria-label="Toggle menu"
+				aria-expanded="false">
+				<span class="burger-line"></span>
+				<span class="burger-line"></span>
+				<span class="burger-line"></span>
+			</button>
+			<ul class="nav-links js-nav-links">
+				<li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+				<li class="nav-item"><a href="#why" class="nav-link">Why</a></li>
+				<li class="nav-item">
+					<a href="#features" class="nav-link">Features</a>
+				</li>
+				<li class="nav-item">
+					<a href="#find-us" class="nav-link">Find Us</a>
+				</li>
+			</ul>
+		</nav>
 		<header class="site-header">
-			<nav class="navbar wrapper">
-				<a class="site-logo-box" href="index.html">
-					<img
-						src="<%= require('./assets/images/logo.svg')%>"
-						alt="Message Silo logo"
-						class="site-logo" />
-				</a>
-				<button
-					class="burger js-burger"
-					aria-label="Toggle menu"
-					aria-expanded="false">
-					<span class="burger-line"></span>
-					<span class="burger-line"></span>
-					<span class="burger-line"></span>
-				</button>
-				<ul class="nav-links js-nav-links mobile-collapsed">
-					<li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-					<li class="nav-item"><a href="#why" class="nav-link">Why</a></li>
-					<li class="nav-item">
-						<a href="#features" class="nav-link">Features</a>
-					</li>
-					<li class="nav-item">
-						<a href="#find-us" class="nav-link">Find Us</a>
-					</li>
-				</ul>
-			</nav>
 			<section class="header-row row wrapper">
 				<div class="col">
 					<div class="row-info">
